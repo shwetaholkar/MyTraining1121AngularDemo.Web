@@ -24,3 +24,7 @@
         public const decimal MinimumUpgradePaymentAmount = 1M;
     }
 }
+
+
+
+

@@ -42,7 +42,8 @@ namespace MyTraining1121AngularDemo.Authorization.Users
         /// <param name="name">Name of admin user</param>
         /// <param name="surname">Surname of admin user</param>
         /// <returns>Created <see cref="User"/> object</returns>
-        public static User CreateTenantAdminUser(int tenantId, string emailAddress, string name = null, string surname = null)
+        public static User CreateTenantAdminUser(int tenantId, string emailAddress, string name = null, 
+            string surname = null)
         {
             var user = new User
             {

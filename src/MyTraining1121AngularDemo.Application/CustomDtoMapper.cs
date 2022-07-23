@@ -1,3 +1,5 @@
+﻿using MyTraining1121AngularDemo.Customers.Dtos;
+using MyTraining1121AngularDemo.Customers;
 using Abp.Application.Editions;
 using Abp.Application.Features;
 using Abp.Auditing;
@@ -42,6 +44,7 @@ using MyTraining1121AngularDemo.Organizations.Dto;
 using MyTraining1121AngularDemo.PhoneBook;
 using MyTraining1121AngularDemo.Sessions.Dto;
 using MyTraining1121AngularDemo.WebHooks.Dto;
+using System.Linq;
 
 namespace MyTraining1121AngularDemo
 {
@@ -49,6 +52,21 @@ namespace MyTraining1121AngularDemo
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            configuration.CreateMap<User, UsersInCustomerDto>();//source-destination
+
+            configuration.CreateMap<CreateOrEditCustomerDto, Customer>().ReverseMap();
+            configuration.CreateMap<CustomerDto, Customer>().ReverseMap();
+
+                //ForMember(dto => dto.Users, opt => opt.MapFrom(model => model.CustomerName)).
+                //ReverseMap().
+                // ForPath(model => model.CustomerName, opt => opt.Ignore());
+
+            //CreateMap<Airline, AirlineDto>().ForMember(dto => dto.City, opt => opt
+            //.MapFrom(model => model.City.Name)).
+            //ForMember(dto => dto.Logo, opt => opt.Ignore()).ReverseMap().
+            //    ForPath(model => model.City.Name, opt => opt.Ignore());
+
+
             //Inputs
             configuration.CreateMap<Phone, PhoneInPersonListDto>();
             configuration.CreateMap<AddPhoneInput, Phone>();
@@ -83,8 +101,6 @@ namespace MyTraining1121AngularDemo
             configuration.CreateMap<Role, RoleListDto>();
             configuration.CreateMap<UserRole, UserListRoleDto>();
 
-            
-
             //Edition
             configuration.CreateMap<EditionEditDto, SubscribableEdition>().ReverseMap();
             configuration.CreateMap<EditionCreateDto, SubscribableEdition>();
@@ -97,7 +113,6 @@ namespace MyTraining1121AngularDemo
             configuration.CreateMap<Edition, EditionEditDto>();
             configuration.CreateMap<Edition, SubscribableEdition>();
             configuration.CreateMap<Edition, EditionSelectDto>();
-
 
             //Payment
             configuration.CreateMap<SubscriptionPaymentDto, SubscriptionPayment>().ReverseMap();
@@ -166,7 +181,7 @@ namespace MyTraining1121AngularDemo
             configuration.CreateMap<DynamicEntityPropertyDto, DynamicEntityProperty>();
 
             configuration.CreateMap<DynamicEntityPropertyValue, DynamicEntityPropertyValueDto>().ReverseMap();
-            
+
             //User Delegations
             configuration.CreateMap<CreateUserDelegationDto, UserDelegation>();
 

@@ -40,6 +40,7 @@ namespace MyTraining1121AngularDemo.Authorization.Users
     public class UserAppService : MyTraining1121AngularDemoAppServiceBase, IUserAppService
     {
         public IAppUrlService AppUrlService { get; set; }
+       
 
         private readonly RoleManager _roleManager;
         private readonly IUserEmailer _userEmailer;
@@ -60,7 +61,6 @@ namespace MyTraining1121AngularDemo.Authorization.Users
         private readonly IRepository<OrganizationUnitRole, long> _organizationUnitRoleRepository;
         private readonly IOptions<UserOptions> _userOptions;
         private readonly IEmailSettingsChecker _emailSettingsChecker;
-        
         public UserAppService(
             RoleManager roleManager,
             IUserEmailer userEmailer,
@@ -78,7 +78,7 @@ namespace MyTraining1121AngularDemo.Authorization.Users
             IRoleManagementConfig roleManagementConfig,
             UserManager userManager,
             IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
-            IRepository<OrganizationUnitRole, long> organizationUnitRoleRepository, 
+            IRepository<OrganizationUnitRole, long> organizationUnitRoleRepository,
             IOptions<UserOptions> userOptions, IEmailSettingsChecker emailSettingsChecker)
         {
             _roleManager = roleManager;
@@ -102,6 +102,7 @@ namespace MyTraining1121AngularDemo.Authorization.Users
             _roleRepository = roleRepository;
 
             AppUrlService = NullAppUrlService.Instance;
+            
         }
 
         [HttpPost]

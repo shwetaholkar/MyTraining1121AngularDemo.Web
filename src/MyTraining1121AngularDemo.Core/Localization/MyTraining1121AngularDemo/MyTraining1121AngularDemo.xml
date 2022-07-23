@@ -1,6 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
   <texts>
+    <text name="Customers">Customers</text>
+    <text name="Customer">Customer</text>
+    <text name="MyTraining1121AngularDemo.Customers.Customer">Customer</text>
+    <text name="CustomerName">Customer name</text>
+    <text name="EmailId">Email id</text>
+    <text name="RegistrationDate">Registration date</text>
+    <text name="CustomersHeaderInfo">Customers header info</text>
+    <text name="CreateNewCustomer">Create new customer</text>
+    <text name="EditCustomer">Edit customer</text>
+    <text name="DeleteCustomer">Delete customer</text>
+    <text name="{0}IsRequired">{0} is required.</text>
+    <text name="View">View</text>
+    <text name="Details">Details</text>
+    <text name="Pick">Pick</text>
+    <text name="True">True</text>
+    <text name="False">False</text>
+    <text name="MinValue">Min</text>
+    <text name="MaxValue">Max</text>
+    <text name="RegistrationDateRange">Registration date range</text>
     <text name="HomePage">Home page</text>
     <text name="AboutUs">About us</text>
     <text name="Administration">Administration</text>

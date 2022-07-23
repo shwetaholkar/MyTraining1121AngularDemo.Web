@@ -46,9 +46,6 @@ namespace MyTraining1121AngularDemo
             return new ListResultDto<PersonListDto>(ObjectMapper.Map<List<PersonListDto>>(persons));
         }
 
-
-
-
         [AbpAuthorize(AppPermissions.Pages_Tenant_PhoneBook_CreatePerson)]
         public async Task CreatePerson(CreatePersonInput input)
         {

@@ -1605,6 +1605,9 @@ namespace MyTraining1121AngularDemo.Migrations
                     b.Property<long?>("CreatorUserId")
                         .HasColumnType("bigint");
 
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<long?>("DeleterUserId")
                         .HasColumnType("bigint");
 
@@ -1711,6 +1714,8 @@ namespace MyTraining1121AngularDemo.Migrations
 
                     b.HasIndex("CreatorUserId");
 
+                    b.HasIndex("CustomerId");
+
                     b.HasIndex("DeleterUserId");
 
                     b.HasIndex("LastModifierUserId");
@@ -1773,6 +1778,60 @@ namespace MyTraining1121AngularDemo.Migrations
                     b.HasIndex("TenantId", "UserId", "ReadState");
 
                     b.ToTable("AppChatMessages");
+                });
+
+            modelBuilder.Entity("MyTraining1121AngularDemo.Customers.Customer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("CreatorUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<long?>("DeleterUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("DeletionTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EmailId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long?>("LastModifierUserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime?>("RegistrationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("TenantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TenantId");
+
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("MyTraining1121AngularDemo.Friendships.Friendship", b =>
@@ -2400,6 +2459,10 @@ namespace MyTraining1121AngularDemo.Migrations
                         .WithMany()
                         .HasForeignKey("CreatorUserId");
 
+                    b.HasOne("MyTraining1121AngularDemo.Customers.Customer", null)
+                        .WithMany("Users")
+                        .HasForeignKey("CustomerId");
+
                     b.HasOne("MyTraining1121AngularDemo.Authorization.Users.User", "DeleterUser")
                         .WithMany()
                         .HasForeignKey("DeleterUserId");
@@ -2535,6 +2598,11 @@ namespace MyTraining1121AngularDemo.Migrations
                     b.Navigation("Settings");
 
                     b.Navigation("Tokens");
+                });
+
+            modelBuilder.Entity("MyTraining1121AngularDemo.Customers.Customer", b =>
+                {
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("MyTraining1121AngularDemo.PhoneBook.Person", b =>

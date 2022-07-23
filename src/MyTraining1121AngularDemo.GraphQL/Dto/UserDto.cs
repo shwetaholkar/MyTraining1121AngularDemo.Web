@@ -42,7 +42,6 @@ namespace MyTraining1121AngularDemo.Dto
             OrganizationUnits = new List<OrganizationUnitDto>();
         }
 
-
         [AutoMapFrom(typeof(Role))]
         public class RoleDto
         {

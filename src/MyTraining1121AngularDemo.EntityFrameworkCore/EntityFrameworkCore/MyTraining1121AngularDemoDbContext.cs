@@ -1,4 +1,5 @@
-﻿using Abp.IdentityServer4vNext;
+﻿using MyTraining1121AngularDemo.Customers;
+using Abp.IdentityServer4vNext;
 using Abp.Zero.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MyTraining1121AngularDemo.Authorization.Delegation;
@@ -15,8 +16,11 @@ using MyTraining1121AngularDemo.Storage;
 
 namespace MyTraining1121AngularDemo.EntityFrameworkCore
 {
-    public class MyTraining1121AngularDemoDbContext : AbpZeroDbContext<Tenant, Role, User, MyTraining1121AngularDemoDbContext>, IAbpPersistedGrantDbContext
+    public class MyTraining1121AngularDemoDbContext : AbpZeroDbContext<Tenant, Role, User, MyTraining1121AngularDemoDbContext>,
+        IAbpPersistedGrantDbContext
     {
+        public virtual DbSet<Customer> Customers { get; set; }
+
         /* Define an IDbSet for each entity of the application */
         public virtual DbSet<Phone> Phones { get; set; }
 
@@ -39,7 +43,7 @@ namespace MyTraining1121AngularDemo.EntityFrameworkCore
         public virtual DbSet<SubscriptionPaymentExtensionData> SubscriptionPaymentExtensionDatas { get; set; }
 
         public virtual DbSet<UserDelegation> UserDelegations { get; set; }
-        
+
         public virtual DbSet<RecentPassword> RecentPasswords { get; set; }
 
         public MyTraining1121AngularDemoDbContext(DbContextOptions<MyTraining1121AngularDemoDbContext> options)
@@ -52,10 +56,14 @@ namespace MyTraining1121AngularDemo.EntityFrameworkCore
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<BinaryObject>(b =>
+            modelBuilder.Entity<Customer>(c =>
             {
-                b.HasIndex(e => new { e.TenantId });
+                c.HasIndex(e => new { e.TenantId });
             });
+            modelBuilder.Entity<BinaryObject>(b =>
+                       {
+                           b.HasIndex(e => new { e.TenantId });
+                       });
 
             modelBuilder.Entity<ChatMessage>(b =>
             {
