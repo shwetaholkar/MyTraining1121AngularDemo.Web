@@ -52,6 +52,7 @@ namespace MyTraining1121AngularDemo
     {
         public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
+            configuration.CreateMap<CustomerUsers, CustomerUserDto>().ReverseMap();
             configuration.CreateMap<User, UsersInCustomerDto>();//source-destination
 
             configuration.CreateMap<CreateOrEditCustomerDto, Customer>().ReverseMap();

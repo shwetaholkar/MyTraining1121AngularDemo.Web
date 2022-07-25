@@ -81,7 +81,6 @@ namespace MyTraining1121AngularDemo
         }
 
 
-
         [AbpAuthorize(AppPermissions.Pages_Tenant_PhoneBook_EditPerson)]
         public async Task<GetPersonForEditOutput> GetPersonForEdit(GetPersonForEditInput input)
         {

@@ -18,7 +18,6 @@ namespace MyTraining1121AngularDemo.PhoneBook
     [Table("PbPersons")]
     public class Person : FullAuditedEntity, IMustHaveTenant
     {
-
         public const int MaxNameLength = 32;
         public const int MaxSurnameLength = 32;
         public const int MaxEmailAddressLength = 255;

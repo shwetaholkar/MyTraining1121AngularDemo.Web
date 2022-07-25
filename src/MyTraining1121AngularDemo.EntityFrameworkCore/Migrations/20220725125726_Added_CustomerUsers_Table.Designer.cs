@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyTraining1121AngularDemo.EntityFrameworkCore;
 
@@ -11,9 +12,10 @@ using MyTraining1121AngularDemo.EntityFrameworkCore;
 namespace MyTraining1121AngularDemo.Migrations
 {
     [DbContext(typeof(MyTraining1121AngularDemoDbContext))]
-    partial class MyTraining1121AngularDemoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220725125726_Added_CustomerUsers_Table")]
+    partial class Added_CustomerUsers_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

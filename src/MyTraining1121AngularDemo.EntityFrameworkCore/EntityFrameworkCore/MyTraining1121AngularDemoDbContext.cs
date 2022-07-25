@@ -21,6 +21,8 @@ namespace MyTraining1121AngularDemo.EntityFrameworkCore
     {
         public virtual DbSet<Customer> Customers { get; set; }
 
+        public virtual DbSet<CustomerUsers> CustomerUserss { get; set; }
+
         /* Define an IDbSet for each entity of the application */
         public virtual DbSet<Phone> Phones { get; set; }
 
