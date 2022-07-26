@@ -22,11 +22,11 @@ namespace MyTraining1121AngularDemo.Customers
     [AbpAuthorize(AppPermissions.Pages_Customers)]
     public class CustomersAppService : MyTraining1121AngularDemoAppServiceBase, ICustomersAppService
     {
-        private readonly IRepository<User,long> _userRepository;
+        private readonly IRepository<User, long> _userRepository;
         private readonly IRepository<Customer> _customerRepository;
         private readonly ICustomersExcelExporter _customersExcelExporter;
 
-        public CustomersAppService(IRepository<Customer> customerRepository, ICustomersExcelExporter customersExcelExporter, IRepository<User,long> userRepository)
+        public CustomersAppService(IRepository<Customer> customerRepository, ICustomersExcelExporter customersExcelExporter, IRepository<User, long> userRepository)
         {
             _customerRepository = customerRepository;
             _customersExcelExporter = customersExcelExporter;
@@ -134,24 +134,6 @@ namespace MyTraining1121AngularDemo.Customers
 
         }
 
-        //public ListResultDto<PersonListDto> GetPeople(GetPeopleInput input)
-        //{
-        //    var persons = _personRepository
-        //        .GetAll()
-        //        .Include(p => p.Phones)
-        //        .WhereIf(
-        //            !input.Filter.IsNullOrEmpty(),
-        //            p => p.Name.Contains(input.Filter) ||
-        //                    p.Surname.Contains(input.Filter) ||
-        //                    p.EmailAddress.Contains(input.Filter)
-        //        )
-        //        .OrderBy(p => p.Name)
-        //        .ThenBy(p => p.Surname)
-        //        .ToList();
-
-        //    return new ListResultDto<PersonListDto>(ObjectMapper.Map<List<PersonListDto>>(persons));
-        //}
-
 
         [AbpAuthorize(AppPermissions.Pages_Customers_Edit)]
         protected virtual async Task Update(CreateOrEditCustomerDto input)
@@ -204,7 +186,19 @@ namespace MyTraining1121AngularDemo.Customers
             }).ToListAsync();
 
             return users;
+
+            //    var a = new CreateOrEditCustomerDto();
+            //    var users = await _userRepository.GetAll().Select(user => new CreateOrEditCustomerDto
+            //    {
+            //        foreach (var user11 in a.Users)
+            //    {
+            //        user11 = user.Name
+            //    }
+
+            //}).ToListAsync();
+            //    return users;
         }
 
     }
 }
+

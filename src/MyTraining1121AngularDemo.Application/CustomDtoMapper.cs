@@ -67,7 +67,6 @@ namespace MyTraining1121AngularDemo
             //ForMember(dto => dto.Logo, opt => opt.Ignore()).ReverseMap().
             //    ForPath(model => model.City.Name, opt => opt.Ignore());
 
-
             //Inputs
             configuration.CreateMap<Phone, PhoneInPersonListDto>();
             configuration.CreateMap<AddPhoneInput, Phone>();

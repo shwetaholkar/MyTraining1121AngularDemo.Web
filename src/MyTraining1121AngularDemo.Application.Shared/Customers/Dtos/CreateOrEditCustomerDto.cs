@@ -19,7 +19,7 @@ namespace MyTraining1121AngularDemo.Customers.Dtos
 
         public DateTime? RegistrationDate { get; set; }
 
-        public Collection<UsersInCustomerDto> Users { get; set; }
+       // public Collection<UsersInCustomerDto> Users { get; set; }
 
     }
 
@@ -28,3 +28,5 @@ namespace MyTraining1121AngularDemo.Customers.Dtos
         public string Name { get; set; }
     }
 }
+
+
